@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Are you really sure???</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://media.giphy.com/media/eHWUyxudOQGCulzFFR/giphy.gif"
+          alt="Crying animated illustration"
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="prevPage()">Back</button>
+        <button
+          class="btn"
+          id="noButton"
+          onmouseover="moveButton()"
+          onclick="incrementClick()"
+        >
+          Yes
+        </button>
+        <script>
+          function prevPage() {
+            window.location.href = "index.html";
+          }
+
+          var clicks = 0;
+          function incrementClick() {
+            clicks += 1;
+            if (clicks === 3) {
+              window.location.href = "consent_three.html";
+            }
+          }
+
+          function moveButton() {
+            var x =
+              Math.random() *
+                (window.innerWidth -
+                  document.getElementById("noButton").offsetWidth) -
+              85;
+            var y =
+              Math.random() *
+                (window.innerHeight -
+                  document.getElementById("noButton").offsetHeight) -
+              48;
+            document.getElementById("noButton").style.left = `${x}px`;
+            document.getElementById("noButton").style.top = `${y}px`;
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
